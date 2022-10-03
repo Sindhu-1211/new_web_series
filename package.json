@@ -1,0 +1,27 @@
+{
+  "name": "my-listener",
+  "description": "Webcomponent my-listener following open-wc recommendations",
+  "license": "MIT",
+  "author": "my-listener",
+  "version": "0.0.0",
+  "main": "index.js",
+  "module": "index.js",
+  "scripts": {
+    "analyze": "cem analyze --litelement",
+    "start": "web-dev-server"
+  },
+  "dependencies": {
+    "@lion/button": "^0.18.1",
+    "@lion/form": "^0.15.0",
+    "@lion/form-core": "^0.18.3",
+    "@lion/input": "^0.18.0",
+    "@lion/select": "^0.17.1",
+    "@lion/tabs": "^0.13.1",
+    "lit": "^2.0.2"
+  },
+  "devDependencies": {
+    "@custom-elements-manifest/analyzer": "^0.4.17",
+    "@web/dev-server": "^0.1.28"
+  },
+  "customElements": "custom-elements.json"
+}

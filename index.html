@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="Description" content="Put your description here." />
+    <base href="/" />
+
+    <style>
+      body {
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      html {
+        background-color: lightgrey;
+      }
+
+      h1 {
+        text-transform: uppercase;
+        text-align: center;
+        border-radius: 1px;
+        color: #08090a;
+        font-size: 50px;
+        margin: 1px;
+        font-weight: lighter;
+        text-shadow: 2px 2px 4px #1b4f72;
+        letter-spacing: 3px;
+      }
+      .cont {
+        gap: 5px;
+      }
+
+      @media (max-width: 800px) {
+        .cont {
+          display: grid;
+          grid-template-columns: 1fr;
+          box-sizing: border-box;
+          gap: 30px;
+        }
+
+        h1 {
+          font-size: 20px;
+        }
+      }
+    </style>
+    <title>web-series</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <h1>Web Series</h1>
+      </nav>
+    </header>
+    <web-series class="cont"> </web-series>
+
+    <script type="module" src="../src/WebSeries.js"></script>
+  </body>
+</html>
