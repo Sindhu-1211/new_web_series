@@ -38,7 +38,7 @@ export class WebSeries extends LitElement {
 
   fetchLists() {
     ajax
-      .fetch("../database/lists.json")
+      .fetch("lists.json")
       .then((response) => {
         console.log(response.data);
         this.lists = response.data;
