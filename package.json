@@ -8,7 +8,7 @@
   "module": "index.js",
   "scripts": {
     "analyze": "cem analyze --litelement",
-    "start": "web-dev-server"
+    "start": "web-dev-server --app-index index.html --node-resolve --open --watch"
   },
   "dependencies": {
     "@lion/ajax": "^1.0.0",
