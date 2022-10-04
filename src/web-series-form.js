@@ -2,6 +2,7 @@ import { html, css, LitElement } from "lit";
 import "@lion/form/define";
 import "@lion/input/define";
 import { LionSelect } from '@lion/select';
+import { Ajax } from "@lion/ajax";
 // import { LionButton, LionButtonReset, LionButtonSubmit } from '@lion/button';
 import {IsString } from "@lion/form-core"
 

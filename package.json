@@ -8,15 +8,17 @@
   "module": "index.js",
   "scripts": {
     "analyze": "cem analyze --litelement",
-    "start": "web-dev-server"
+    "start": "json-server --watch ./database/lists.json"
   },
   "dependencies": {
+    "@lion/ajax": "^1.0.0",
     "@lion/button": "^0.18.1",
     "@lion/form": "^0.15.0",
     "@lion/form-core": "^0.18.3",
     "@lion/input": "^0.18.0",
     "@lion/select": "^0.17.1",
     "@lion/tabs": "^0.13.1",
+    "json-server": "^0.17.0",
     "lit": "^2.0.2"
   },
   "devDependencies": {

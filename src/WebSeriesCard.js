@@ -86,7 +86,7 @@ export class WebSeriesCard extends LitElement {
           backface-visibility: hidden;
         }
         .flip-card {
-          // background-color: rgb(255, 255, 255);
+          background-color: lightgray;
           width: auto;
           height: 100%;
           border: 1px solid #f1f1f1;
@@ -146,6 +146,7 @@ export class WebSeriesCard extends LitElement {
     e.preventDefault();
     console.log(this.director);
   }
+
 }
 
 customElements.define("web-series-card", WebSeriesCard);

@@ -1,4 +1,5 @@
 import { LitElement, html, css } from "lit";
+import { ajax } from "@lion/ajax";
 
 import { webSeriesForm } from "../src/web-series-form.js";
 import { webSeriesOverview } from "../src/web-series-overview.js";
@@ -31,14 +32,27 @@ export class WebSeries extends LitElement {
   `;
   constructor() {
     super();
-    this.lists = "";
-    
+    this.lists = [];
+    this.fetchLists();
+  }
+
+  fetchLists() {
+    ajax
+      .fetch("../database/lists.json")
+      .then((response) => {
+        console.log(response.data);
+        this.lists = response.data;
+        this.requestUpdate();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
   listCard(e) {
-    if(this.lists.length <= 5){
+    if (this.lists.length <= 5) {
       this.lists = [...this.lists, e.detail];
-    }else{
-      alert("Maximum 6 lists are allowed!!")
+    } else {
+      alert("Maximum 6 lists are allowed!!");
     }
     console.log(this.lists);
   }
