@@ -43,7 +43,6 @@ export class WebSeries extends LitElement {
         .then(result => {
           console.log(result.lists);
           this.lists = result.lists;
-          console.log(this.lists);
           this.requestUpdate();
         })
         .catch((err) => {

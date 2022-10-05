@@ -18,6 +18,7 @@
     "@lion/input": "^0.18.0",
     "@lion/select": "^0.17.1",
     "@lion/tabs": "^0.13.1",
+    "@lion/validate-messages": "^0.10.1",
     "json-server": "^0.17.0",
     "lit": "^2.0.2"
   },

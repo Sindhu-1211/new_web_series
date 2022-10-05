@@ -1,10 +1,12 @@
 import { html, css, LitElement } from "lit";
 import "@lion/form/define";
 import "@lion/input/define";
-import { LionSelect } from '@lion/select';
-import { Ajax } from "@lion/ajax";
+import { LionSelect } from "@lion/select";
+// import { Ajax } from "@lion/ajax";
 // import { LionButton, LionButtonReset, LionButtonSubmit } from '@lion/button';
-import {IsString } from "@lion/form-core"
+import { loadDefaultFeedbackMessages } from '@lion/validate-messages';
+// import { Required ,Validator } from "@lion/form-core";
+import { Required } from "@lion/form-core";
 
 customElements.define("lion-select", LionSelect);
 // customElements.define("lion-button", LionButton)
@@ -40,7 +42,7 @@ export class webSeriesForm extends LitElement {
       margin-bottom: 30px;
     }
 
-    .clkBtn{
+    .clkBtn {
       background-color: rgb(63, 117, 63);
       color: white;
       padding: 12px 30px;
@@ -48,35 +50,46 @@ export class webSeriesForm extends LitElement {
       border-radius: 7px;
       cursor: pointer;
     }
-    
   `;
   render() {
-    const fetchHandler = name => {
-      ajax
-        .fetch(`${name}.json`)
-        .then(cards => cards.json())
-        .then(result => {
-          console.log(result.cards);
-        });
-    };
+    loadDefaultFeedbackMessages();
     return html`
       <lion-form>
         <form>
-          <lion-input label="Title" id = "title" name="input" .validators="${[new IsString()]}"></lion-input>
-          <lion-input label="Director" id = "director" name="input" .validators="${[new IsString()]}"></lion-input>
-          <lion-input label="Stars" id = "stars" name="input" .validators="${[new IsString()]}"></lion-input>
+          <lion-input
+            label="Title"
+            id="title"
+            name="input"
+            .validators="${[new Required(null,{ getMessage: () => 'Please enter title' })]}"            
+            .modelValue=${''}
+          ></lion-input>
+          <lion-input
+            label="Director"
+            id="director"
+            name="input"
+            .validators=${[new Required(null,{ getMessage: () => 'Please enter director name' })]}
+          ></lion-input>
+          <lion-input
+            label="Stars"
+            id="stars"
+            name="input"
+            .validators=${[new Required(null,{ getMessage: () => 'Please enter star' })]}
+          ></lion-input>
           <lion-select name="Streaming on" label="Streaming on">
-          <select slot="input" id = "streaming">          >
-          <option style="text-align: center">--- Select ---</option>
-          <option value="netflix">Netflix</option>
-          <option value="hotstar">Hotstar</option>
-          <option value="prime">Prime</option>
-          <option value="youtube">YouTube</option>
-          </select>   
-          </lion-select>     
-        <p><button class="clkBtn" @click=${this._dispatchLogin}>Add</button></p>
-    </form>
-  </lion-form>
+            <select slot="input" id="streaming">
+              >
+              <option style="text-align: center">--- Select ---</option>
+              <option value="netflix">Netflix</option>
+              <option value="hotstar">Hotstar</option>
+              <option value="prime">Prime</option>
+              <option value="youtube">YouTube</option>
+            </select>
+          </lion-select>
+          <p>
+            <button class="clkBtn" @click=${this._dispatchLogin}>Add</button>
+          </p>
+        </form>
+      </lion-form>
     `;
   }
 
@@ -93,3 +106,4 @@ export class webSeriesForm extends LitElement {
     this.dispatchEvent(new CustomEvent("mylogin", { detail: serDetails }));
   }
 }
+
