@@ -37,17 +37,20 @@ export class WebSeries extends LitElement {
   }
 
   fetchLists() {
-    // ajax
-    //   .fetch("../lists.json")
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     this.lists = response.data;
-    //     this.requestUpdate();
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-  }
+    ajax
+    .fetch("lists.json")
+        .then(response => response.json())
+        .then(result => {
+          console.log(result.lists);
+          this.lists = result.lists;
+          console.log(this.lists);
+          this.requestUpdate();
+        })
+        .catch((err) => {
+          console.log(err);
+        });        ;
+      }
+     
   listCard(e) {
     if (this.lists.length <= 5) {
       this.lists = [...this.lists, e.detail];
@@ -58,6 +61,7 @@ export class WebSeries extends LitElement {
   }
 
   render() {
+    
     return html`
       <lion-tabs>
         <button slot="tab">Add WebSeries</button>

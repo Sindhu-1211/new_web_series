@@ -51,6 +51,14 @@ export class webSeriesForm extends LitElement {
     
   `;
   render() {
+    const fetchHandler = name => {
+      ajax
+        .fetch(`${name}.json`)
+        .then(cards => cards.json())
+        .then(result => {
+          console.log(result.cards);
+        });
+    };
     return html`
       <lion-form>
         <form>
