@@ -20,29 +20,21 @@ export class webSeriesOverview extends LitElement {
       @media (min-width: 800px) {
         :host {
           border-radius: 20px;
-          background-image: linear-gradient(
-            rgb(223, 172, 223),
-            rgb(216, 216, 116)
-          );
+          background-color: lightgray;
           padding: 2rem;
           flex: 50%;
           flex-direction: row;
-          border: 1px solid rgb(197, 131, 188);
           display: grid;
           grid-gap: 15px;
           grid-template-columns: repeat(2, minmax(0, 1fr));
           grid-template-rows: repeat(3, minmax(0, 1fr));
         }
       }
-      @media (max-width: 800px) {
+      @media (max-width: 200px) {
         :host {
           border-radius: 20px;
-          background-image: linear-gradient(
-            rgb(223, 172, 223),
-            rgb(216, 216, 116)
-          );
+          background-color: lightgray;
           padding: 2rem;
-          border: 1px solid rgb(197, 131, 188);
           display: grid;
           grid-gap: 15px;
           grid-template-columns: 1fr;
