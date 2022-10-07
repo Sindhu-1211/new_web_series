@@ -20,7 +20,7 @@ export class WebSeriesCard extends LitElement {
 
   static get styles() {
     return css`
-      @media (min-width: 200px) {
+      @media (min-width: 20px) {
         .flip-card {
           background-image: linear-gradient(rgb(223, 172, 223), rgb(216, 216, 116));
           width: auto;
@@ -70,15 +70,13 @@ export class WebSeriesCard extends LitElement {
   render() {
     return html`
       <div class="flip-card">
-        
-          <div class="flip-card-front">
+        <div class="flip-card-front">
           ${this.title}<br />
-            ${this.director}<br />
-            ${this.stars}<br />
-            ${this.streaming}<br />
-            <button>DELETE</button>
-          </div>
-        
+          ${this.director}<br />
+          ${this.stars}<br />
+          ${this.streaming}<br />
+          <button>DELETE</button>
+        </div>
       </div>
     `;
   }

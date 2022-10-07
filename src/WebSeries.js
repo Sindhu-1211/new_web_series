@@ -29,6 +29,19 @@ export class WebSeries extends LitElement {
         gap: 20px;
       }
     }
+    button{
+      padding: 12px;
+      border-radius: 6px;
+      font-family:Georgia, "Times New Roman", Times, serif;
+      /* margin-right:20px; */
+      margin-left:20%;
+      width: 20%;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    button:active,button:hover{
+      background-color: lightblue;
+    }
   `;
   constructor() {
     super();
@@ -64,7 +77,7 @@ export class WebSeries extends LitElement {
     return html`
       <lion-tabs>
         <button slot="tab">Add WebSeries</button>
-        <button slot="tab">WebSeries overview</button>
+        <button slot="tab">WebSeries Lists</button>
         <p slot="panel">
           <web-series-form @mylogin=${this.listCard}></web-series-form>
         </p>
